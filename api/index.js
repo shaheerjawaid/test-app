@@ -5,9 +5,10 @@ const app = express();
 
 const mainRoutes = require('./routes/main.routes');
 
-app.get(process.env.API_PREFIX, [
+app.use(process.env.API_PREFIX, [
     mainRoutes
 ]);
+
 
 app.listen(process.env.PORT, () => console.log(`Server ready on port ${process.env.PORT}.`));
 
