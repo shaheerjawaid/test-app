@@ -1,10 +1,14 @@
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
 
 const mainRoutes = require('./routes/main.routes');
 
-app.use('/', mainRoutes);
+app.get(process.env.API_PREFIX, [
+    mainRoutes
+]);
 
-app.listen(3000, () => console.log("Server ready on port 3000."));
+app.listen(process.env.PORT, () => console.log(`Server ready on port ${process.env.PORT}.`));
 
 module.exports = app;
